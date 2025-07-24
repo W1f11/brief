@@ -34,41 +34,49 @@ gsap.utils.toArray(".scroll-container, .espaces, .tarifs, .contact").forEach(ele
     duration: 1
   });
 });
-  (function(){
-    emailjs.init("r_gCmzChrn-Nx0D73");
-  })();
-
   document.addEventListener("DOMContentLoaded", () => {
-    const formulaire = document.querySelector("#formulaire-contact");
-
-    formulaire.addEventListener("submit", function (e) {
-      e.preventDefault(); // Empêche le rechargement
-
-      const nom = document.getElementById("nom").value.trim();
-      const prenom = document.getElementById("prenom").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const tel = document.getElementById("tel").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (!nom || !prenom || !email || !tel || !message) {
-        alert("Veuillez remplir tous les champs avant d'envoyer le message.");
-        return;
-      }
-
-      const templateParams = {
-        nom: nom,
-        prenom: prenom,
-        email: email,
-        tel: tel,
-        message: message
-      };
-
-      emailjs.send("service_l7e6dvi", "template_5b9pp2e", templateParams)
-        .then(function(response) {
-          alert("Message envoyé avec succès ! ✅");
-          formulaire.reset();
-        }, function(error) {
-          alert("Erreur lors de l'envoi ❌ : " + error.text);
-        });
-    });
+  // ✅ Initialisation EmailJS v3
+  emailjs.init({
+    publicKey: "YcQJ3kuVgP6XeYcms"
   });
+
+  const formulaire = document.querySelector("#formulaire-contact");
+
+  if (!formulaire) {
+    console.error("❌ Le formulaire n’a pas été trouvé !");
+    return;
+  }
+
+  formulaire.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nom = document.getElementById("nom").value.trim();
+    const prenom = document.getElementById("prenom").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const tel = document.getElementById("tel").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!nom || !prenom || !email || !tel || !message) {
+      alert("Veuillez remplir tous les champs avant d'envoyer le message.");
+      return;
+    }
+
+    const templateParams = {
+      nom,
+      prenom,
+      email,
+      tel,
+      message
+    };
+
+    emailjs.send("service_l7e6dvi", "template_5b9pp2e", templateParams)
+      .then(function (response) {
+        alert("Message envoyé avec succès ! ✅");
+        formulaire.reset();
+      })
+      .catch(function (error) {
+        alert("Erreur lors de l'envoi ❌ : " + error.text);
+        console.error("Erreur EmailJS :", error);
+      });
+  });
+});
