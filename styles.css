@@ -29,49 +29,8 @@ header {
     z-index: 2000; /* 👈 Ajoute ceci */
 
 }
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: #85586F;
-}
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
 
-  nav.nav-links {
-    display: none;
-    width: 100%;
-    background-color: #F8ECD1;
-    padding: 15px 20px;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(133, 88, 111, 1);
-  }
-
-  nav.nav-links.active {
-    display: block;
-  }
-  header.active {
-  background-color: #F8ECD1 !important;
-}
-
-  
-
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav li {
-    display: block;
-    margin: 15px 0;
-  }
-}
 
 
 
@@ -213,14 +172,7 @@ nav a:hover {
   white-space: nowrap;
   position: relative;
 }
-@keyframes scroll-horizontal {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+
 
 /* Responsive : sur mobile, empilement vertical sans animation */
 @keyframes scroll-vertical {
@@ -233,7 +185,7 @@ nav a:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .scroll-container {
     padding: 0 20px;
     height: 300px; /* fixe la hauteur pour scroll vertical */
@@ -263,55 +215,7 @@ nav a:hover {
   padding: 10px;
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
 
-  nav.nav-links {
-    display: none;
-    width: 100%;
-    background-color: #F8ECD1;
-    padding: 15px 20px;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  }
-nav.nav-links .btn{
-    padding: 11px;
-}
-  nav.nav-links.active {
-    display: block;
-  }
-
-  nav.nav-links ul {
-    flex-direction: column;
-    align-items: center; /* Centrer uniquement les éléments */
-    padding: 0;
-    margin: 0;
-  }
-
-  nav.nav-links li {
-    display: block;
-    width: 100%;
-    margin: 15px 0;
-    text-align: center; /* Centrer uniquement le texte */
-  }
-
-  nav.nav-links a {
-    display: inline-block; /* Permet au texte d'être centré */
-    padding: 8px 0;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  nav.nav-links a:hover {
-    color: #85586F;
-  }
-}
 /* Animation horizontale */
 @keyframes scroll-horizontal {
   0% {
@@ -601,7 +505,7 @@ textarea {
 }
 
 /* Version mobile - centrage du texte */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .footer {
   padding: 40px 20px;
   background-color: #f6ede4;
@@ -637,7 +541,7 @@ textarea {
 }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -652,4 +556,126 @@ textarea {
   .footer1 ul {
     align-items: center;
   }
+}
+@media (max-width: 480px) {
+  /* --- HEADER --- */
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #85586F;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  nav.nav-links {
+    display: none;
+    width: 100%;
+    background-color: #F8ECD1;
+    padding: 15px 20px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  nav.nav-links.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    text-align: center;
+  }
+
+  nav.nav-links .btn {
+    padding: 11px;
+    color: #F8ECD1;
+  }
+
+  nav.nav-links ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.nav-links li {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  nav.nav-links a {
+    display: inline-block;
+    padding: 8px 0;
+    color: #85586F;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  nav.nav-links a:hover {
+    color: #85586F;
+  }
+}
+
+  /* --- SECTION WELCOME --- */
+  .welcome {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .welcome-text,
+  .welcome-image {
+    width: 100%;
+  }
+
+  .welcome-image img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  /* --- FORMULAIRE DE CONTACT --- */
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 20px; /* Adjust this value to move left/right */
+    /* or use transform: translateX(-20px); for more precise control */
+}
+
+/* Rest of your existing CSS */
+.contact-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    flex-direction: column;
+}
+
+.form-group > div {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.message textarea {
+    width: 100%;
+}
+
+.contact-form .btn.envoyer {
+    width: 100%;
 }

@@ -3,16 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('nav.nav-links');
 
     hamburger.addEventListener('click', () => {
+        console.log('Button clicked!'); // Debugging line
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
 });
-// Testez ce code directement dans la console
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    console.log('Bouton cliqué!'); // Doit s'afficher au clic
-    document.querySelector('.nav-links').classList.toggle('active');
-});
-// GSAP Animations
+
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.from(".title, .welcome-text", {
@@ -35,9 +31,9 @@ gsap.utils.toArray(".scroll-container, .espaces, .tarifs, .contact").forEach(ele
   });
 });
   document.addEventListener("DOMContentLoaded", () => {
-  // ✅ Initialisation EmailJS v3
+  
   emailjs.init({
-    publicKey: "YcQJ3kuVgP6XeYcms"
+    publicKey: "-bCFW2jACYMHPP_vW"
   });
 
   const formulaire = document.querySelector("#formulaire-contact");
