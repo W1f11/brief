@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workly</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="brief.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="#">
+        <img src="logo.png" alt="Mon logo">
+      </a>
+    </div>
+    <button class="menu-toggle">☰</button> 
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+    </nav>
+</header>
+
+  <section class="welcome">
+    <div class="welcome-text">
+      <h2>Bienvenue dans notre univers chaleureux</h2>
+      <p>Détendez-vous et laissez-vous inspirer par une atmosphère douce et élégante.Ici, chaque détail est pensé pour éveiller vos sens et enrichir votre expérience.</p>
+      <p></p>
+      <a href="#" class="btn">Rejoignez-nous</a>
+    </div>
+    <div class="welcome-image">
+      <img src="image.png" alt="Illustration">
+    </div>
+  </section>
+
+  <section>
+    <div class="scroll-container">
+      <div class="scroll-content">
+        <span class="logo">QONTO</span>
+        <span class="logo">COWORK</span>
+        <span class="logo">SHINE</span>
+        <span class="logo">ORANGE</span>
+        <span class="logo">QONTO</span>
+        <span class="logo">COWORK</span>
+        <span class="logo">SHINE</span>
+        <span class="logo">ORANGE</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="espaces" id="galerie">
+    <h2 class="title">Nos espaces</h2>
+    <div class="images-espaces">
+      <img src="espace1.jpg" alt="Espace 1" class="img1">
+      <img src="espace2.jpg" alt="Espace 2" class="img2">
+      <img src="espace3.jpg" alt="Espace 3" class="img3">
+      <img src="espace4.jpg" alt="Espace 4" class="img4">
+    </div>
+  </section>
+
+  <section class="tarifs" id="tarifs">
+    <h2 class="title">Nos tarifs</h2>
+    <div class="cartes-tarifs">
+      <div class="carte">
+        <h3>Libre</h3>
+        <p class="prix">100DH/Jour</p>
+        <ul>
+          <li>✔ Accès espace partagé</li>
+          <li>✔ Wi-Fi haut débit</li>
+          <li>✔ Thé & café inclus</li>
+        </ul>
+      </div>
+
+      <div class="carte carte-centree">
+        <h3>Rythme</h3>
+        <p class="prix">400DH/Jour</p>
+        <ul>
+          <li>✔ Accès 5 jours/semaine</li>
+          <li>✔ Salle de réunion (2h)</li>
+          <li>✔ Espace détente</li>
+        </ul>
+      </div>
+
+      <div class="carte">
+        <h3>Fixe</h3>
+        <p class="prix">1500DH/Jour</p>
+        <ul>
+          <li>✔ Accès illimité 24h/24</li>
+          <li>✔ Bureau dédié</li>
+          <li>✔ Accès événements Workly</li>
+          <li>✔ Casier personnel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="title">Contactez-nous</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Informations</h3>
+        <p><i class="fa-solid fa-envelope"></i> workly@gmail.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> Bd Chefchaouni, Ain Sebaa<br>20520 Casablanca</p>
+        <a href="https://www.linkedin.com/in/nom1" target="_blank" class="linkedin-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+
+      <form class="contact-form" id="formulaire-contact">
+        <div class="form-group">
+          <div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom">
+          </div>
+          <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom">
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Votre email">
+          </div>
+          <div>
+            <label for="tel">Tél</label>
+            <input type="tel" id="tel" name="tel" placeholder="Votre téléphone">
+          </div>
+        </div>
+        <div class="message">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Votre Message"></textarea>
+        </div>
+        <button type="submit" class="btn envoyer"">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer1">
+        <h3>Workly</h3>
+        <p>Workly est un espace de coworking moderne et inspirant, </p>
+        <p> conçu pour stimuler la productivité, la créativité et la collaboration. </p>
+        <p>Situé au cœur de la ville, il offre un environnement flexible et chaleureux adapté aux freelances, </p>
+        <p>startups, entrepreneurs et équipes en télétravail.</p>
+      </div>
+      <div class="footer1">
+        <h3>Information</h3>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Galerie</a></li>
+          <li><a href="#">Tarifs</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer1">
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-envelope"></i>Bd Chefchaouni, Ain Sebaa<br>20520 Casablanca</p>
+        <p><i class="fa-solid fa-location-dot"></i>workly@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i>+212699485050</p>
+      </div>
+    </div>
+  </footer>
+  <script src="brief.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+</body>
+</html>
