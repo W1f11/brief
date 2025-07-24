@@ -712,8 +712,8 @@ nav.nav-links .btn{
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin-left: 20px; /* Adjust this value to move left/right */
-    /* or use transform: translateX(-20px); for more precise control */
+    margin-left: 20px; /*ajuste ce qui est droite to gauche*/
+    
 }
 
 /* Rest of your existing CSS */
