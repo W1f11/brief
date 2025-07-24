@@ -34,48 +34,41 @@ gsap.utils.toArray(".scroll-container, .espaces, .tarifs, .contact").forEach(ele
     duration: 1
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const formulaire = document.querySelector("#formulaire-contact");
+  (function(){
+    emailjs.init("r_gCmzChrn-Nx0D73");
+  })();
 
-  formulaire.addEventListener("submit", function (e) {
-    e.preventDefault(); // Empêche le rechargement
+  document.addEventListener("DOMContentLoaded", () => {
+    const formulaire = document.querySelector("#formulaire-contact");
 
-    const nom = document.getElementById("nom").value.trim();
-    const prenom = document.getElementById("prenom").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const tel = document.getElementById("tel").value.trim();
-    const message = document.getElementById("message").value.trim();
+    formulaire.addEventListener("submit", function (e) {
+      e.preventDefault(); // Empêche le rechargement
 
-    if (!nom || !prenom || !email || !tel || !message) {
-      alert("Veuillez remplir tous les champs avant d'envoyer le message.");
-      return;
-    }
+      const nom = document.getElementById("nom").value.trim();
+      const prenom = document.getElementById("prenom").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const tel = document.getElementById("tel").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    // Si tous les champs sont remplis, appel de la fonction d’envoi
-    sendEmail(nom, prenom, email, tel, message);
+      if (!nom || !prenom || !email || !tel || !message) {
+        alert("Veuillez remplir tous les champs avant d'envoyer le message.");
+        return;
+      }
+
+      const templateParams = {
+        nom: nom,
+        prenom: prenom,
+        email: email,
+        tel: tel,
+        message: message
+      };
+
+      emailjs.send("service_l7e6dvi", "template_5b9pp2e", templateParams)
+        .then(function(response) {
+          alert("Message envoyé avec succès ! ✅");
+          formulaire.reset();
+        }, function(error) {
+          alert("Erreur lors de l'envoi ❌ : " + error.text);
+        });
+    });
   });
-});
-
-function sendEmail(nom, prenom, email, tel, message) {
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "essalhiwafaa01@gmail.com",
-    Password: "***********", // ⚠️ À retirer en production
-    To: "essalhiwafaa01@gmail.com",
-    From: "essalhiwafaa01@gmail.com",
-    Subject: "Message depuis le formulaire Workly",
-    Body: `
-      Nom : ${nom}<br>
-      Prénom : ${prenom}<br>
-      Email : ${email}<br>
-      Tél : ${tel}<br>
-      Message : ${message}
-    `
-  }).then(() => {
-    alert("Message envoyé avec succès ! ✅");
-    document.getElementById("formulaire-contact").reset(); // Reset le formulaire
-  }).catch((error) => {
-    alert("Erreur lors de l'envoi ❌ : " + error);
-  });
-}
-
