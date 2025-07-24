@@ -29,8 +29,49 @@ header {
     z-index: 2000; /* 👈 Ajoute ceci */
 
 }
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #85586F;
+}
 
+@media (max-width: 480px) {
+  .menu-toggle {
+    display: block;
+  }
 
+  nav.nav-links {
+    display: none;
+    width: 100%;
+    background-color: #F8ECD1;
+    padding: 15px 20px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(133, 88, 111, 1);
+  }
+
+  nav.nav-links.active {
+    display: block;
+  }
+  header.active {
+  background-color: #F8ECD1 !important;
+}
+
+  
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav li {
+    display: block;
+    margin: 15px 0;
+  }
+}
 
 
 
@@ -172,7 +213,14 @@ nav a:hover {
   white-space: nowrap;
   position: relative;
 }
-
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 /* Responsive : sur mobile, empilement vertical sans animation */
 @keyframes scroll-vertical {
@@ -565,8 +613,24 @@ textarea {
     background: none;
     border: none;
     cursor: pointer;
-    color: #85586F;
+    color: #333;
   }
+
+  nav.nav-links {
+    display: none;
+    /* Add these to ensure visibility: */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+}
+
+nav.nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    text-align: center;
+}
 
   header {
     display: flex;
@@ -575,7 +639,6 @@ textarea {
     padding: 10px 20px;
     position: relative;
   }
-
   nav.nav-links {
     display: none;
     width: 100%;
@@ -586,26 +649,19 @@ textarea {
     top: 100%;
     z-index: 1000;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-
-  nav.nav-links.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-    text-align: center;
-  }
-
-  nav.nav-links .btn {
+nav.nav-links .btn{
     padding: 11px;
     color: #F8ECD1;
+;
+}
+  nav.nav-links.active {
+    display: block;
   }
 
   nav.nav-links ul {
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centrer uniquement les éléments */
     padding: 0;
     margin: 0;
   }
@@ -614,11 +670,11 @@ textarea {
     display: block;
     width: 100%;
     margin: 15px 0;
-    text-align: center;
+    text-align: center; /* Centrer uniquement le texte */
   }
 
   nav.nav-links a {
-    display: inline-block;
+    display: inline-block; /* Permet au texte d'être centré */
     padding: 8px 0;
     color: #85586F;
     text-decoration: none;
@@ -628,6 +684,9 @@ textarea {
   nav.nav-links a:hover {
     color: #85586F;
   }
+
+.btn:hover {
+  background-color: #A77488;
 }
 
   /* --- SECTION WELCOME --- */
@@ -678,4 +737,5 @@ textarea {
 
 .contact-form .btn.envoyer {
     width: 100%;
+}
 }
