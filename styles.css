@@ -222,7 +222,7 @@ nav a:hover {
   }
 }
 
-/* Responsive : sur mobile, empilement vertical sans animation */
+/* Responsive :empilement vertical  */
 @keyframes scroll-vertical {
   0% {
     transform: translateY(0);
@@ -236,7 +236,7 @@ nav a:hover {
 @media (max-width: 480px) {
   .scroll-container {
     padding: 0 20px;
-    height: 300px; /* fixe la hauteur pour scroll vertical */
+    height: 300px; 
   }
 
   .scroll-content {
@@ -262,9 +262,6 @@ nav a:hover {
   border: none;
   padding: 10px;
 }
-
-
-/* Animation horizontale */
 @keyframes scroll-horizontal {
   0% {
     transform: translateX(0%);
@@ -303,8 +300,6 @@ h2 {
 .images-espaces img:hover {
     transform: scale(1.05);
 }
-
-/* Décalage personnalisé */
 .img1 {
   transform: translateY(0px);
 }
@@ -495,7 +490,7 @@ textarea {
   background-color: #a7708f;
 }
 
-/* ===== Footer ===== */
+/* Footer  */
 .footer {
   background-color: #f6ede4;
   padding: 60px;
@@ -552,7 +547,7 @@ textarea {
   color: #AC7D88;
 }
 
-/* Version mobile - centrage du texte */
+/*centrage du texte */
 @media (max-width: 480px) {
   .footer {
   padding: 40px 20px;
@@ -606,7 +601,7 @@ textarea {
   }
 }
 @media (max-width: 480px) {
-  /* --- HEADER --- */
+  /*HEADER */
   .menu-toggle {
     display: block;
     font-size: 24px;
@@ -618,7 +613,7 @@ textarea {
 
   nav.nav-links {
     display: none;
-    /* Add these to ensure visibility: */
+    /* j'utilise cette option pour la vésibilité: */
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -661,7 +656,7 @@ nav.nav-links .btn{
 
   nav.nav-links ul {
     flex-direction: column;
-    align-items: center; /* Centrer uniquement les éléments */
+    align-items: center; 
     padding: 0;
     margin: 0;
   }
@@ -670,11 +665,11 @@ nav.nav-links .btn{
     display: block;
     width: 100%;
     margin: 15px 0;
-    text-align: center; /* Centrer uniquement le texte */
+    text-align: center; 
   }
 
   nav.nav-links a {
-    display: inline-block; /* Permet au texte d'être centré */
+    display: inline-block; 
     padding: 8px 0;
     color: #85586F;
     text-decoration: none;
@@ -689,7 +684,7 @@ nav.nav-links .btn{
   background-color: #A77488;
 }
 
-  /* --- SECTION WELCOME --- */
+  
   .welcome {
     flex-direction: column;
     padding: 20px;
@@ -707,7 +702,7 @@ nav.nav-links .btn{
     margin-top: 20px;
   }
 
-  /* --- FORMULAIRE DE CONTACT --- */
+  /*FORMULAIRE DE CONTACT*/
   .contact-container {
     display: flex;
     flex-direction: column;
@@ -715,8 +710,6 @@ nav.nav-links .btn{
     margin-left: 20px; /*ajuste ce qui est droite to gauche*/
     
 }
-
-/* Rest of your existing CSS */
 .contact-info {
     margin-bottom: 30px;
     text-align: center;

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('nav.nav-links');
 
     hamburger.addEventListener('click', () => {
-        console.log('Button clicked!'); // Debugging line
+        console.log('Button clicked!'); 
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
